@@ -1,0 +1,12 @@
+{
+	"name": "Laravel 5.5x",
+	"description": "A awesome Laravel 5.5x",
+	"version": "1.0.0",
+	"homepage": "https://www.dekuan.org/",
+	"license": "MIT",
+	"private": true,
+	"dependencies":
+	{
+		"vdata": ">=1.0"
+	}
+}
