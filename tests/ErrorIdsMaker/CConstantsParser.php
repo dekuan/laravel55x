@@ -9,15 +9,13 @@ class CConstantsParser
 {
 	private $m_arrValues	= [];
 	private $m_arrComments	= [];
-	private $m_arrRout      = [];
+	private $m_arrRoute	= [];
 
 
 	public function __construct( $sClass )
 	{
 		$this->_parse( new \ReflectionClass( $sClass ) );
 	}
-
-
 
 	public function getConstants()
 	{
@@ -80,7 +78,7 @@ class CConstantsParser
 	}
 
 
-	public function getRout($sName)
+	public function getRoute( $sName )
 	{
 		if ( ! is_string( $sName ) || 0 == strlen( $sName ) )
 		{
@@ -94,9 +92,9 @@ class CConstantsParser
 		//	...
 		$sRet	= '';
 
-		if ( array_key_exists( $sName, $this->m_arrRout ) )
+		if ( array_key_exists( $sName, $this->m_arrRoute ) )
 		{
-			$sRet = $this->m_arrRout[ $sName ];
+			$sRet = $this->m_arrRoute[ $sName ];
 		}
 
 		return $sRet;
@@ -130,7 +128,9 @@ class CConstantsParser
 
 		foreach ( $arrContains as $nLine => $arrList )
 		{
-			//	$m_arrComments
+			//
+			//	m_arrComments
+			//
 			if ( is_array( $arrList ) && count( $arrList ) > 0 )
 			{
 				$bIsConst	= false;
@@ -185,12 +185,12 @@ class CConstantsParser
 			$exp = explode('@route',$routValue);
 			if ( ! isset( $exp[ 1 ] ) )
 			{
-				$this->m_arrRout[ $routKey ] = '没有规范的文档输出';
+				$this->m_arrRoute[ $routKey ] = '没有规范的文档输出';
 				continue;
 			}
 
 			$this->m_arrComments[ $routKey ]	= $exp[ 0 ];
-			$this->m_arrRout[ $routKey ]		= $exp[ 1 ];
+			$this->m_arrRoute[ $routKey ]		= $exp[ 1 ];
 		}
 	}
 	

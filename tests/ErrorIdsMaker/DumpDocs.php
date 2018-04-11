@@ -41,7 +41,7 @@ class DumpDocs extends BaseTestCase
 				'错误码KEY'	=> 'key',
 				'错误码值'	=> 'value',
 				'错误码描述'	=> 'comment',
-				'路由'		=>  'rout'
+				'路由'		=>  'route'
 			];
 
 		$arrPrintInfo = [];
@@ -58,14 +58,14 @@ class DumpDocs extends BaseTestCase
 			echo "[" . $oClass . "]" . PHP_EOL;
 			foreach ( $arrInfo as $sConstName => $arrItem )
 			{
-				printf( "%s\t%d\t%s", $sConstName, $arrItem['value'], $arrItem['comment'], $arrItem['rout'] );
+				printf( "%s\t%d\t%s", $sConstName, $arrItem['value'], $arrItem['comment'], $arrItem['route'] );
 				echo PHP_EOL;
 				$arrPrintInfo[] =
 					[
-						'key'     => $sConstName,
-						'value'   => $arrItem['value'],
-						'comment' => $arrItem['comment'],
-						'rout'    => $arrItem['rout']
+						'key'		=> $sConstName,
+						'value'		=> $arrItem[ 'value' ],
+						'comment'	=> $arrItem[ 'comment' ],
+						'route'		=> $arrItem[ 'route' ]
 					];
 			}
 
@@ -95,7 +95,7 @@ class DumpDocs extends BaseTestCase
 			[
 				'value'		=> $cConstParser->getValue( $sConstName ),
 				'comment'	=> $cConstParser->getComment( $sConstName ),
-				'rout'		=> $cConstParser->getRout( $sConstName ),
+				'route'		=> $cConstParser->getRoute( $sConstName ),
 			];
 		}
 
